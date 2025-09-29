@@ -1,4 +1,4 @@
-package src;
+package src.main.java.com.shoefinder;
 
 public class Handler {
     public void GetShoe(){
