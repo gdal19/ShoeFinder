@@ -7,12 +7,20 @@ import java.time.LocalDate;
 @Table(name = "shoes")
 public class Shoe {
 
+    private int id;
     private String name;
     private String brand;
     private int price;
     private String color;
     private LocalDate releaseDate;
 
+    public int getId() {
+        return id;
+    }
+    
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
