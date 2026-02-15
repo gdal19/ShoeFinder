@@ -1,5 +1,12 @@
 package com.shoefinder.dto;
 
-public record ShoeResponse() {
+import java.time.LocalDate;
 
-}
+public record ShoeResponse(
+                            int id,
+                            String name,
+                            String brade,
+                            String color,
+                            int price,
+                            LocalDate releaseDate
+                        ) {}
