@@ -53,6 +53,5 @@ public class Shoe {
         this.releaseDate = releaseDate;
     }
 
-    
 
 }
