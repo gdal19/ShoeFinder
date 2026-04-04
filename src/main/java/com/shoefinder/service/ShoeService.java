@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import com.shoefinder.repository.ShoeRepository;
 import com.shoefinder.domain.Shoe;
+import com.shoefinder.dto.ShoeEditRequest;
 
 @Service
 public class ShoeService {
@@ -21,5 +22,22 @@ public class ShoeService {
 
     public List<Shoe> getShoes(){
         return repository.findAll();
+    }
+
+    public Shoe getShoeById(Long id){
+        return repository.findById(id)
+                            .orElseThrow(()-> new RuntimeException("ID " + id + " not found"));
+    }
+
+    public Shoe editShoe(Long id, ShoeEditRequest request){
+        Shoe shoe = getShoeById(id);
+
+        request.name().ifPresent(shoe::setName);
+        request.brand().ifPresent(shoe::setBrand);
+        request.color().ifPresent(shoe::setColor);
+        request.price().ifPresent(shoe::setPrice);
+        request.releaseDate().ifPresent(shoe::setReleaseDate);
+
+        return repository.save(shoe);
     }
 }
