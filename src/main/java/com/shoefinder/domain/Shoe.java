@@ -1,24 +1,26 @@
 package com.shoefinder.domain;
 
 import jakarta.persistence.*;
+
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "shoes")
 public class Shoe {
 
-    private int id;
+    private Long id;
     private String name;
     private String brand;
-    private int price;
+    private BigDecimal price;
     private String color;
     private LocalDate releaseDate;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
     
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -34,10 +36,10 @@ public class Shoe {
     public void setBrand(String brand) {
         this.brand = brand;
     }
-    public int getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
-    public void setPrice(int price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
     public String getColor() {

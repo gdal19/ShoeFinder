@@ -1,12 +1,13 @@
 package com.shoefinder.dto;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 public record ShoeResponse(
-                            int id,
+                            Long id,
                             String name,
-                            String brade,
+                            String brand,
                             String color,
-                            int price,
+                            BigDecimal price,
                             LocalDate releaseDate
                         ) {}
