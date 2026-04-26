@@ -12,5 +12,5 @@ CREATE TABLE shoes (
     brand VARCHAR (20) NOT NULL,
     price NUMERIC(10, 2) NOT NULL,
     color VARCHAR (20),
-    releaseDate DATE
+    release_date DATE
 );
