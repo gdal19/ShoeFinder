@@ -1,0 +1,9 @@
+.home-container{
+    padding: 32px;
+}
+
+.shoe-list{
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}

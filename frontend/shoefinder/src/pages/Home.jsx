@@ -1,5 +1,6 @@
 import { useState } from "react"
 import ShoeCard from "../components/ShoeCard"
+import "./Home.css"
 
 function Home(){
     const [message, setMessage] = useState("Welcome")
@@ -16,19 +17,21 @@ function Home(){
     }
 
     return(
-        <div>
+        <div className="home-container">
             <h1>{appName}</h1>
             <p>{message}</p>
             <button onClick={newMessage}> 
                 CLICK HERE!!!
             </button>
-            {
-                shoes.map((shoe) => { 
-                    return (
-                        <ShoeCard key = {shoe.id} name = {shoe.name} price={shoe.price} />
-                    )
-                })
-            }
+            <div className="shoe-list">
+                {
+                    shoes.map((shoe) => { 
+                        return (
+                            <ShoeCard key = {shoe.id} name = {shoe.name} price={shoe.price} />
+                        )
+                    })
+                }
+            </div>
         </div>
     )
 }

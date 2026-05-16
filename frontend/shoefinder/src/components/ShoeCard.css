@@ -1,0 +1,8 @@
+.shoe-card{
+    border: 1px solid black;
+    padding: 16px;
+    /*margin: 12px;*/
+    border-radius: 8px;
+    width: 220px;
+    /*background-color: lightgray;*/
+}
