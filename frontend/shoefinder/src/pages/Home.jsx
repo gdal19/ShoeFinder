@@ -6,15 +6,20 @@ import jordan3 from "../assets/images/jordan3.webp"
 import curry6 from "../assets/images/curry6.jpg.avif"
 
 function Home(){
-    const [search, setSearch] = useState("")
     let appName = "Shoe Finder"
     let message = "Welcome"
+    const [search, setSearch] = useState("")
+    const [favorites, setFavorites] = useState([])
 
     const shoes = [
         {id: 1, name: "Jordan 1", price: 1300, image: jordan1},
         {id: 2, name : "Curry 6", price: 1100, image: curry6},
         {id: 3, name : "Jordan 3", price: 1200, image: jordan3}
     ]
+
+    const filteredShoes = shoes.filter((shoe) => {
+        return shoe.name.includes(search)}
+    )
 
     function newSearch(event){
         // console.log(event)
@@ -23,9 +28,17 @@ function Home(){
         setSearch(event.target.value)
     }
 
-    const filteredShoes = shoes.filter((shoe) => {
-        return shoe.name.includes(search)}
-    )
+    function editFavorites(id){
+        if (favorites.includes(id)) {
+            setFavorites(favorites.filter((favoriteId) => {
+                            return favoriteId !== id
+                        }))
+        } else {
+            setFavorites([...favorites, id])
+        }
+    }
+
+
 
     return(
         <div className="home-container">
@@ -36,8 +49,18 @@ function Home(){
             <div className="shoe-list">
                 {
                     filteredShoes.map((shoe) => { 
+                        const isFavorite = favorites.includes(shoe.id)
+
                         return (
-                            <ShoeCard key = {shoe.id} name = {shoe.name} price={shoe.price} image={shoe.image} />
+                            <ShoeCard 
+                                key = {shoe.id}
+                                id = {shoe.id}
+                                name = {shoe.name}
+                                price= {shoe.price}
+                                image= {shoe.image}
+                                isFavorite= {isFavorite}
+                                editFavorites= {editFavorites}
+                            />
                         )
                     })
                 }
