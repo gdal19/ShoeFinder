@@ -1,0 +1,32 @@
+.header-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #dcdcdc;
+    background-color: white;
+
+}
+.header-title{
+    text-align: center;
+    flex: 1;
+    font-size: 70px;
+    font-weight: bold;
+    font-family: cursive;
+
+}
+.user{
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.user-name{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.user-favorites{
+    font-size: 12px;
+}

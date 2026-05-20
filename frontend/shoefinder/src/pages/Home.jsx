@@ -1,5 +1,6 @@
 import { useState } from "react"
 import ShoeCard from "../components/ShoeCard"
+import Header from "../components/Header"
 import "./Home.css"
 import jordan1 from "../assets/images/jordan1.jpg.webp"
 import jordan3 from "../assets/images/jordan3.webp"
@@ -15,6 +16,10 @@ function Home(){
         {id: 1, name: "Jordan 1", price: 1300, image: jordan1},
         {id: 2, name : "Curry 6", price: 1100, image: curry6},
         {id: 3, name : "Jordan 3", price: 1200, image: jordan3}
+    ]
+
+    const users = [
+        {name: "Guilherme"}
     ]
 
     const filteredShoes = shoes.filter((shoe) => {
@@ -42,7 +47,14 @@ function Home(){
 
     return(
         <div className="home-container">
-            <h1>{appName}</h1>
+            <h1>
+                {users.map((user) => {
+                    return (
+                        <Header name = {appName} username={user.name} favoritesCount = {favorites.length}/>
+                    )
+                })
+                }
+            </h1>
             <p>{message}</p>
             <input className="search-bar" type ="text" placeholder="Search..." value={search} onChange={newSearch}/>
             <p>{search}</p>
