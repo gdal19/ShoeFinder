@@ -1,10 +1,10 @@
 import './Profile.css'
 
-function Profile(){
+function Profile({ username }){
 
     return (
         <div>
-            <h1>User Name</h1>
+            <h1>{username}</h1>
             <p>Favorites</p>
             <p>name@email.com</p>
         </div>

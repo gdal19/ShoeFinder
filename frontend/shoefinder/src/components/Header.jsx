@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import "./Header.css"
 
 
@@ -5,13 +6,16 @@ function Header({name, username, favoritesCount}){
 
     return (
         <div className="header-container">
-            <h1 className="header-title">
+            <Link to='/' className="header-title">
                 {name}
-            </h1>
+            </Link>
             <div className="user">
-                <p className="user-name">
+                <Link to='/login' className="login-button">
+                    Login
+                </Link>
+                <Link to='/profile' className="user-name">
                     {username}
-                </p>
+                </Link>
                 <p className="user-favorites">
                     {favoritesCount} Favorites
                 </p>
