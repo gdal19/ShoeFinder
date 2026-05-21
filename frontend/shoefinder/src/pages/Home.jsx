@@ -6,11 +6,11 @@ import jordan1 from "../assets/images/jordan1.jpg.webp"
 import jordan3 from "../assets/images/jordan3.webp"
 import curry6 from "../assets/images/curry6.jpg.avif"
 
-function Home(){
+function Home({ username, favorites, setFavorites }){
     let appName = "Shoe Finder"
     let message = "Welcome"
     const [search, setSearch] = useState("")
-    const [favorites, setFavorites] = useState([])
+    //const [favorites, setFavorites] = useState([])
 
     const shoes = [
         {id: 1, name: "Jordan 1", price: 1300, image: jordan1},
@@ -50,7 +50,7 @@ function Home(){
             <h1>
                 {users.map((user) => {
                     return (
-                        <Header name = {appName} username={user.name} favoritesCount = {favorites.length}/>
+                        <Header name = {appName} username={username} favoritesCount = {favorites.length}/>
                     )
                 })
                 }

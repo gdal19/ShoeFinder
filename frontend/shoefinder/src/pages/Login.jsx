@@ -1,16 +1,17 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './Login.css'
+import Header from "../components/Header"
 
-function Login(){
+function Login({ username, setUsername, favorites }){
 
-    const [email, setEmail] = useState("")
+    //const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
     const navigate = useNavigate()
 
-    function handleEmail(event){
-        setEmail(event.target.value)
+    function handleUser(event){
+        setUsername(event.target.value)
     }
 
     function handlePassword(event){
@@ -19,29 +20,32 @@ function Login(){
 
     function handleLogin(event){
         event.preventDefault()
-        if (email === "" || password === "") {
+        if (username === "" || password === "") {
             alert("Please fill in all fields")
         }
-        console.log(email)
+        console.log(username)
         console.log(password)
 
         navigate("/profile")
     }
 
     return (
-        <div className='login-container'>
-            <form className='login-form' onSubmit={handleLogin}>
-                <p>User Name</p>
-                <input className='login-input' type='text' value={email} onChange={handleEmail} />
-                <p>Password</p>
-                <input className='login-input' type='password' value={password} onChange={handlePassword} />
-                <button className='login-button'>
-                    Forgot Password
-                </button>
-                <button className='login-button' type='submit'>
-                    Login
-                </button>
-            </form>
+        <div>
+            <Header name="Shoe Finder" username={username} favoritesCount={favorites.length}/>
+            <div className='login-container'>
+                <form className='login-form' onSubmit={handleLogin}>
+                    <p>User Name</p>
+                    <input className='login-input' type='text' value={username} onChange={handleUser} />
+                    <p>Password</p>
+                    <input className='login-input' type='password' value={password} onChange={handlePassword} />
+                    <button className='login-button'>
+                        Forgot Password
+                    </button>
+                    <button className='login-button' type='submit'>
+                        Login
+                    </button>
+                </form>
+            </div>
         </div>
 
     )
