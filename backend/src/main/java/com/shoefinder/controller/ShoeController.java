@@ -10,6 +10,7 @@ import com.shoefinder.service.ShoeService;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
 @RequestMapping("/shoes")
+@CrossOrigin(origins = "http://localhost:5173")
 public class ShoeController {
 
     private final ShoeService service;

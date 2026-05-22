@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.shoefinder.dto.UserResponse;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
 @RequestMapping
+@CrossOrigin(origins = "http://localhost:5173")
 public class UserController {
 
     @GetMapping
