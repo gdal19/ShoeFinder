@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 
 function App() {
   const [username, setUsername] = useState("")
+  const [password, setPassword] = useState("")
   const [favorites, setFavorites] = useState([])
   const [shoes, setShoes] = useState([])
 
@@ -23,8 +24,8 @@ function App() {
     <BrowserRouter> 
 
       <Routes>
-          <Route path="/" element={<Home username={username} favorites={favorites} setFavorites={setFavorites}/>} />
-          <Route path="/login" element={<Login username={username} setUsername={setUsername} favorites={favorites}/>} />
+          <Route path="/" element={<Home username={username} favorites={favorites} setFavorites={setFavorites} shoes={shoes}/>} />
+          <Route path="/login" element={<Login username={username} setUsername={setUsername} favorites={favorites} password={password} setPassword={setPassword}/>} />
           <Route path="/profile" element={<Profile username={username} favorites={favorites}/>} />
       </Routes>
     

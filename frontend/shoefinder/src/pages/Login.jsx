@@ -3,10 +3,10 @@ import { useNavigate } from 'react-router-dom'
 import './Login.css'
 import Header from "../components/Header"
 
-function Login({ username, setUsername, favorites }){
+function Login({ username, setUsername, favorites, password, setPassword }){
 
     //const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
+    // const [password, setPassword] = useState("")
 
     const navigate = useNavigate()
 
@@ -18,15 +18,40 @@ function Login({ username, setUsername, favorites }){
         setPassword(event.target.value)
     }
 
-    function handleLogin(event){
+    async function verifyLogin(){
+        const response = await fetch("http://localhost:8080/login", {
+            method: "POST",
+            body: JSON.stringify({
+                username: username,
+                password: password
+            }),
+            headers: {"Content-Type": "application/json"}
+        }
+        )
+
+        if (!response.ok) {
+            alert("Invalid username or password")
+            return false
+        }
+
+        //const data = await response.json()
+        return true
+    }
+
+    async function handleLogin(event){
         event.preventDefault()
         if (username === "" || password === "") {
             alert("Please fill in all fields")
+            return
         }
         console.log(username)
         console.log(password)
 
-        navigate("/profile")
+        const success = await verifyLogin()
+
+        if (success) {
+            navigate("/profile")
+        }
     }
 
     return (

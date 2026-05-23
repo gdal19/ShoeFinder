@@ -6,17 +6,17 @@ import jordan1 from "../assets/images/jordan1.jpg.webp"
 import jordan3 from "../assets/images/jordan3.webp"
 import curry6 from "../assets/images/curry6.jpg.avif"
 
-function Home({ username, favorites, setFavorites }){
+function Home({ username, favorites, setFavorites, shoes }){
     let appName = "Shoe Finder"
     let message = "Welcome"
     const [search, setSearch] = useState("")
     //const [favorites, setFavorites] = useState([])
 
-    const shoes = [
-        {id: 1, name: "Jordan 1", price: 1300, image: jordan1},
-        {id: 2, name : "Curry 6", price: 1100, image: curry6},
-        {id: 3, name : "Jordan 3", price: 1200, image: jordan3}
-    ]
+    // const shoes = [
+    //     {id: 1, name: "Jordan 1", price: 1300, image: jordan1},
+    //     {id: 2, name : "Curry 6", price: 1100, image: curry6},
+    //     {id: 3, name : "Jordan 3", price: 1200, image: jordan3}
+    // ]
 
     const users = [
         {name: "Guilherme"}
