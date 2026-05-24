@@ -8,7 +8,7 @@ import com.shoefinder.dto.ShoeResponse;
 import com.shoefinder.mapper.ShoeMapper;
 import com.shoefinder.service.ShoeService;
 
-import java.util.List;
+import java.util.Set;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,7 +34,7 @@ public class ShoeController {
     }
 
     @GetMapping
-    public List<ShoeResponse> getShoes() {
+    public Set<ShoeResponse> getShoes() {
         return mapper.toResponseList(service.getShoes());
     }
 

@@ -1,6 +1,6 @@
 package com.shoefinder.service;
 
-import java.util.List;
+import java.util.Set;
 
 import org.springframework.stereotype.Service;
 import com.shoefinder.repository.ShoeRepository;
@@ -20,7 +20,7 @@ public class ShoeService {
         return repository.save(shoe); 
     }
 
-    public List<Shoe> getShoes(){
+    public Set<Shoe> getShoes(){
         return repository.findAll();
     }
 

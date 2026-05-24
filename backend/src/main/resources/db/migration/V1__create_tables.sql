@@ -14,3 +14,16 @@ CREATE TABLE shoes (
     color VARCHAR (20),
     release_date DATE
 );
+
+CREATE TABLE user_favorites (
+    user_id BIGSERIAL PRIMARY KEY,
+    shoe_id BIGSERIAL PRIMARY KEY,
+
+    CONSTRAINT fk_user
+        FOREIGN KEY (user_id)
+        REFERENCES users(id),
+
+    CONSTRAINT fk_shoe
+        FOREIGN KEY (shoe_id)
+        REFERENCES shoes(id),
+);

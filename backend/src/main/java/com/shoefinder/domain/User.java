@@ -1,4 +1,6 @@
 package com.shoefinder.domain;
+import java.util.HashSet;
+
 
 import jakarta.persistence.*;
 
@@ -10,6 +12,15 @@ public class User {
     private String name;
     private String email;
     private String password;
+
+    @ManyToMany
+    @JoinTable(
+        name = "user_favorites",
+        joinColumns = @JoinColumn(name = "user_id"),
+        inverseJoinColumns = @JoinColumn(name = "shoe_id")
+    )
+
+    private Set<Shoes> favorites =  new HashSet<>();
     
 
     public Long getId() {
@@ -42,4 +53,11 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+    public Set<Shoes> getFavorites() {
+        return favorites;
+    }
+    public void setFavorites(Set<Shoes> favorites) {
+        this.favorites = favorites;
+    }
+    
 }

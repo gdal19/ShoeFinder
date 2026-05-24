@@ -1,0 +1,10 @@
+package com.shoefinder.dto;
+
+import java.util.Optional;
+
+public record UserEditRequest (
+                                Optional<String> username;
+                                Optional<String> name;
+                                Optional<String> email;
+                                Optional<String> password;
+                            ){}

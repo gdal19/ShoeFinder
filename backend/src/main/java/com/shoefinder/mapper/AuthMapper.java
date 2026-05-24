@@ -8,7 +8,7 @@ import com.shoefinder.domain.User;
 @Component
 public class AuthMapper {
     
-    public LoginResponse toResponse(org.springframework.security.core.userdetails.User user){
+    public LoginResponse toResponse(User user){
         return new LoginResponse(
                 user.getId(),
                 user.getName(),
